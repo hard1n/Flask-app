@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% block content %}
+  <section class="content-section">
+    <form method="POST" action="">
+      {{ form.hidden_tag() }}
+      <legend class="d-grid justify-content-center mb-4 text-info">
+        Log In
+      </legend>
+      <!-- User field validator -->
+      {% if form.email.errors %}
+        {{
+          form.email(class_="form-control
+          form-control-lg text-primary is-invalid", placeholder_="Email")
+        }}
+        <div class="invalid-feedback">
+          {% for error in form.email.errors %}
+            <span> {{ error }} </span>
+          {% endfor %}
+        </div>
+      {% else %}
+        {{
+          form.email(class_="form-control form-control-lg mb-3",
+          id_="floatingInput", placeholder_="Email")
+        }}
+      {% endif %}
+
+      <!-- Password field validator -->
+      {% if form.password.errors %}
+        {{
+          form.password(class_="form-control
+          form-control-lg text-primary is-invalid", placeholder_="Password")
+        }}
+        <div class="invalid-feedback">
+          {% for error in form.password.errors %}
+            <span> {{ error }} </span>
+          {% endfor %}
+        </div>
+      {% else %}
+        {{
+          form.password(class_="form-control
+          form-control-lg mb-3", placeholder_="Password")
+        }}
+      {% endif %}
+      <div class="form-check">
+        {{ form.remember(class_="form-check-input") }}
+        {{ form.remember.label(class_="form-check-label") }}
+      </div>
+      <div class="d-grid gap-2">
+        {{ form.submit(class_="btn btn-info m-4 text-light") }}
+      </div>
+      <div class="d-grid">
+        <small class="text-muted mx-auto">
+          <a href="#" class="text-info">Forgot your password?</a>
+        </small>
+      </div>
+      <div class="d-flex justify-content-center mt-4 mx-4">
+        <small class="mb-2"
+          >Don't have an account?
+          <a href=" {{ url_for('register') }} " class="text-info"> Regiter </a>
+        </small>
+      </div>
+    </form>
+  </section>
+{% endblock content %}
