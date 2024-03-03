@@ -1,9 +1,7 @@
-from flask import Flask, render_template, url_for, flash, redirect
-from forms import RegistrationForm, LoginForm
-
-app = Flask(__name__)
-# config values of the app
-app.config['SECRET_KEY'] = 'cf6c0c0039ad00a386c898d6c6e773c2'
+from flask import render_template, url_for, flash, redirect
+from flaskblog import app
+from flaskblog.forms import RegistrationForm, LoginForm
+from flaskblog.db_models import User, Post
 
 # FAKE POSTS TO RENDER
 posts = [
@@ -48,7 +46,3 @@ def login():
     else:
       flash('Check Username and Password', 'danger')
   return render_template("login.html", title='Login', form=form)
-
-# Debugging 
-if __name__ == "__main__":
-  app.run(debug=True)

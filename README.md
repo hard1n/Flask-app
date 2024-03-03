@@ -9,3 +9,4 @@
 - HTML & CSS + Bootstrap
 - Python + Flask
   - Flask-WTF
+  - flask-SQLAlchemy
