@@ -19,17 +19,6 @@
         <img class="rounded-circle account-img" src="{{ user_image }}" />
         <button class="upload-img">
           {{ form.picture.label(class_="text-light", for_="picture") }}
-          <div class="">
-            {{ form.picture(class_="hide-input-file", type="file") }}
-            <!-- <i class="text-info">&#x2b;</i> -->
-            {% if form.picture.errors %}
-              {% for error in form.picture.errors %}
-                <div><span class="text-danger"> {{ error }} </span></div>
-                <br />
-              {% endfor %}
-            {% endif %}
-            {{ form.hidden_tag() }}
-          </div>
         </button>
       </div>
       <div class="media-body">
@@ -41,6 +30,17 @@
   </section>
   <section class="content-section">
     <form method="POST" action="" enctype="multipart/form-data">
+      <div class="">
+        {{ form.picture(class_="hide-input-file", type="file") }}
+        <!-- <i class="text-info">&#x2b;</i> -->
+        {% if form.picture.errors %}
+          {% for error in form.picture.errors %}
+            <div><span class="text-danger"> {{ error }} </span></div>
+            <br />
+          {% endfor %}
+        {% endif %}
+        {{ form.hidden_tag() }}
+      </div>
       <fieldset class="form-group">
         <legend class="d-grid justify-content-center mb-4 text-info">
           Account information

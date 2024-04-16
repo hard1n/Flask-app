@@ -18,8 +18,10 @@ In this project I dived into learning concepts such as:
 
 - HTML & CSS + Bootstrap
 - Python + Flask
-  - Flask-WTF
-  - Flask-SQLAlchemy
-  - Flask-Bcrypt
-  - Flask-Login
-- SQLite
+  - Flask-WTF _(to validate forms)_
+  - Flask-SQLAlchemy _(ORM for DB modeling)_
+  - Flask-Bcrypt _(to encrypt passwords)_
+  - Flask-Login _(for authentication)_
+- SQLite _(temporal Data Base)_
+- Secrets _(to change imgs names)_
+- Pillow _(for resising images)_
