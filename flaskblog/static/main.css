@@ -73,17 +73,6 @@ a.article-title:hover {
   vertical-align: middle;
 }
 
-.account-img {
-  height: 125px;
-  width: 125px;
-  margin-right: 20px;
-  margin-bottom: 16px;
-}
-
-.account-heading {
-  font-size: 2.5rem;
-}
-
 /* @media screen and (min-width: 480px) {
   body {
     display: flex;
@@ -120,6 +109,7 @@ form .btn {
 .img-container {
   border: 2px solid gray;
   border-radius: 50%;
+  position: relative;
   height: 8rem;
   width: 8rem;
 }
@@ -130,5 +120,50 @@ form .edit-control {
   border-bottom: 1px solid;
 }
 
-form .upload-img {
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+.upload-img {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  flex: 1;
+  font-size: 1rem;
+  position: absolute;
+  padding: 0;
+  bottom: 0;
+  right: 0;
+  height: 25px;
+  width: 25px;
+}
+
+.upload-img > label {
+  background-color: rgba(0, 0, 0, 20%);
+  border-radius: 50%;
+  display: inline-block;
+  transition: all 0.3s;
+  width: 100%;
+}
+
+.upload-img > label:hover {
+  cursor: pointer;
+  transform: scale(1.5);
+}
+
+.hide-input-file {
+  display: inline-block;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
 }

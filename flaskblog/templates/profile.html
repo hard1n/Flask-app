@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+{% block content %}
+  <!-- <figure class="user">
+    <div class="img-container">
+      <img
+        class="rounded-circle account-img"
+        src="{{ current_user.image_file }}"
+        alt="Profile pic"
+      />
+    </div>
+    <figcaption>
+      <h2 class="account-heading">{{ current_user.username }}</h2>
+      <p class="text-secondary">{{ current_user.email }}</p>
+    </figcaption>
+  </figure> -->
+  <section class="content-section">
+    <div class="media">
+      <div class="img-container">
+        <img class="rounded-circle account-img" src="{{ user_image }}" />
+        <button class="upload-img">
+          {{ form.picture.label(class_="text-light", for_="picture") }}
+          <div class="">
+            {{ form.picture(class_="hide-input-file", type="file") }}
+            <!-- <i class="text-info">&#x2b;</i> -->
+            {% if form.picture.errors %}
+              {% for error in form.picture.errors %}
+                <div><span class="text-danger"> {{ error }} </span></div>
+                <br />
+              {% endfor %}
+            {% endif %}
+            {{ form.hidden_tag() }}
+          </div>
+        </button>
+      </div>
+      <div class="media-body">
+        <h2 class="account-heading">{{ current_user.username }}</h2>
+        <p class="text-secondary">{{ current_user.email }}</p>
+      </div>
+    </div>
+    <!-- FORM HERE -->
+  </section>
+  <section class="content-section">
+    <form method="POST" action="" enctype="multipart/form-data">
+      <fieldset class="form-group">
+        <legend class="d-grid justify-content-center mb-4 text-info">
+          Account information
+        </legend>
+        <!-- <div class="form-group">
+          {{ form.username.label(class_="form-control-label") }}
+        </div> -->
+        <!-- <div class="form-floating mb-3">
+          <input
+            type="email"
+            class="form-control"
+            id="floatingInput"
+            placeholder="name@example.com"
+          />
+          <label for="floatingInput">Username</label>
+        </div> -->
+        <!-- User field validator -->
+        {% if form.username.errors %}
+          {{
+            form.username(class_="form-control
+            form-control-lg is-invalid", placeholder_="Username")
+          }}
+          <div class="invalid-feedback">
+            {% for error in form.username.errors %}
+              <span> {{ error }} </span>
+            {% endfor %}
+          </div>
+        {% else %}
+          {{
+            form.username(class_="form-control form-control-lg mb-3 text-secondary edit-control",
+            id_="floatingInput", placeholder_="Username")
+          }}
+        {% endif %}
+
+        <!-- Email field validator -->
+        {% if form.email.errors %}
+          {{
+            form.email(class_="form-control
+            form-control-lg is-invalid text-secondary edit-control", placeholder_="Email")
+          }}
+          <div class="invalid-feedback">
+            {% for error in form.email.errors %}
+              <span> {{ error }} </span>
+            {% endfor %}
+          </div>
+        {% else %}
+          {{
+            form.email(class_="form-control form-control-lg mb-3 edit-control text-secondary",
+            placeholder_="Email")
+          }}
+        {% endif %}
+      </fieldset>
+      <!-- Submit btn -->
+      <div class="d-grid gap-2">
+        {{ form.submit(class_="btn btn-info m-4 text-light") }}
+      </div>
+    </form>
+  </section>
+{% endblock content %}
